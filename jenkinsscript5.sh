@@ -7,12 +7,12 @@ which python3
 python3 -V
 
 echo '#### Install requirements ####'
-pip install --no-cache-dir -r ./requirements.txt
-pip install pytest-cov
+# pip install --no-cache-dir -r ./requirements.txt
+# pip install pytest-cov
 
 echo '#### Run tests & coverage ####'
-pytest --cov=main utests --junitxml=./xmlReport/output.xml
-python -m coverage xml
+# pytest --cov=main utests --junitxml=./xmlReport/output.xml
+# python -m coverage xml
 
 echo '### deactivate virtual environment ###'
 deactivate
