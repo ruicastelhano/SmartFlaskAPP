@@ -13,7 +13,7 @@ pipeline {
 				echo "Unit Tests"
 				//sh(returnStatus: true, script: '. ~/.bashrc \n pyenv version')
 				//sh('chmod +x ./jenkinsscript.sh')
-				sh('bash ./jenkinsscript.sh')
+				sh('bash ./tests.sh')
           }
         }
 	stage("Publish Junit report") {
