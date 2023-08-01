@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout code'){
+            steps {
+                echo "checkout"
+                sh 'ls -l'
+                sh 'pwd'
+            }
+        }
+        stage ('unit tests'){
+            steps {
+                echo "unit tests"
+                sh("bash /home/jenkins/pipelines/pipeline01/tests.sh")
+            }
+        }
+        stage ('publish report'){
+            steps {
+                echo "publish report"
+                junit skipMarkingBuildUnstable: true, testResults: 'xmlReport/output.xml'
+            }
+        }
+        stage ('publish coverage'){
+            steps {
+                echo "publish coverage"
+                cobertura coberturaReportFile: 'coverage.xml'
+            }
+        }
+        stage ('build'){
+            steps {
+                echo "build"
+            }
+        }
+        stage ('deploy'){
+            steps {
+                echo "deploy"
+            }
+        }
+        stage ('more tests'){
+            steps {
+                echo "more tests"
+            }
+        }
+    }
+}
